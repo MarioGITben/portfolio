@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import { FileDown, Moon } from 'lucide-react'
-import { useCallback, useEffect, useRef } from 'react'
-import { contact, simpleResume } from '../data'
+import { FileDown, MapPin, Moon } from 'lucide-react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { awards, contact, simpleResume } from '../data'
 import { useLenisInstance } from '../context/LenisContext'
 import { BrandLogo } from './BrandLogo'
 import { LangToggle } from './LangToggle'
@@ -14,12 +14,28 @@ type Props = {
 
 const ease = [0.22, 1, 0.36, 1] as const
 
+const EDU_ORDER = { tertiary: 0, secondary: 1, primary: 2 } as const
+
+const RESUME_PDF = '/resume.pdf'
+
+function triggerPdfDownload() {
+  const a = document.createElement('a')
+  a.href = RESUME_PDF
+  a.download = 'Mark-Benson-Bellen-resume.pdf'
+  a.rel = 'noopener'
+  document.body.appendChild(a)
+  a.click()
+  a.remove()
+}
+
 export function SimpleResume({ onClose }: Props) {
   const { locale } = useLanguage()
   const m = useMessages()
   const closeRef = useRef<HTMLButtonElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
+  const downloadCancelRef = useRef<HTMLButtonElement>(null)
   const lenis = useLenisInstance()
+  const [downloadOpen, setDownloadOpen] = useState(false)
 
   const trapWheel = useCallback((e: React.WheelEvent) => {
     e.stopPropagation()
@@ -27,14 +43,27 @@ export function SimpleResume({ onClose }: Props) {
 
   useEffect(() => {
     closeRef.current?.focus()
+  }, [])
+
+  useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
+      if (e.key !== 'Escape') return
+      if (downloadOpen) {
+        setDownloadOpen(false)
+        return
+      }
+      onClose()
     }
     window.addEventListener('keydown', onKey)
     return () => {
       window.removeEventListener('keydown', onKey)
     }
-  }, [onClose])
+  }, [onClose, downloadOpen])
+
+  useEffect(() => {
+    if (!downloadOpen) return
+    downloadCancelRef.current?.focus()
+  }, [downloadOpen])
 
   useEffect(() => {
     lenis?.stop()
@@ -84,17 +113,36 @@ export function SimpleResume({ onClose }: Props) {
                   {pick(simpleResume.headline, locale)}
                 </h1>
                 <p className="mt-1.5 text-base text-zinc-600 sm:text-lg">{pick(simpleResume.tagline, locale)}</p>
-                <p className="mt-2 font-sans text-sm text-zinc-600">
-                  {contact.email} · {pick(simpleResume.location, locale)}
+                <p className="mt-2 flex flex-wrap items-center gap-x-1.5 gap-y-1 font-sans text-sm text-zinc-600">
+                  <a
+                    href={`mailto:${contact.email}`}
+                    className="text-zinc-600 underline-offset-2 hover:text-amber-900 hover:underline"
+                  >
+                    {contact.email}
+                  </a>
+                  <span className="text-zinc-400" aria-hidden>
+                    ·
+                  </span>
+                  <a
+                    href={`tel:${contact.phone.replace(/[\s().-]/g, '')}`}
+                    className="text-zinc-600 underline-offset-2 hover:text-amber-900 hover:underline"
+                    aria-label={m.contact.phoneCall}
+                  >
+                    {contact.phone}
+                  </a>
+                  <span className="text-zinc-400" aria-hidden>
+                    ·
+                  </span>
+                  <span>{pick(simpleResume.location, locale)}</span>
                 </p>
-                <a
-                  href="/resume.pdf"
-                  className="mt-3 inline-flex items-center gap-2 font-sans text-sm text-amber-900 underline-offset-4 hover:underline md:hidden"
-                  download
+                <button
+                  type="button"
+                  onClick={() => setDownloadOpen(true)}
+                  className="mt-3 inline-flex cursor-pointer items-center gap-2 font-sans text-sm text-amber-900 underline-offset-4 hover:underline md:hidden"
                 >
                   <FileDown className="size-4 shrink-0" aria-hidden />
                   {m.resume.downloadPdf}
-                </a>
+                </button>
               </div>
             </div>
           </header>
@@ -136,10 +184,49 @@ export function SimpleResume({ onClose }: Props) {
             <h2 className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-900">
               {m.resume.sectionEducation}
             </h2>
-            <p className="mt-3 font-display text-lg text-zinc-950">{pick(simpleResume.education.school, locale)}</p>
-            <p className="mt-1.5 font-sans text-sm leading-relaxed text-zinc-700">
-              {pick(simpleResume.education.detail, locale)}
-            </p>
+            <ul className="mt-4 space-y-6 sm:space-y-7">
+              {[...simpleResume.education]
+                .sort((a, b) => EDU_ORDER[a.level] - EDU_ORDER[b.level])
+                .map((ed) => (
+                  <li key={`${ed.level}-${pick(ed.school, locale)}`}>
+                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-900/90">
+                      {ed.level === 'tertiary'
+                        ? m.resume.eduLevelTertiary
+                        : ed.level === 'secondary'
+                          ? m.resume.eduLevelSecondary
+                          : m.resume.eduLevelPrimary}
+                    </p>
+                    <div className="mt-1.5 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                      <p className="font-display text-lg text-zinc-950">{pick(ed.school, locale)}</p>
+                      <p className="shrink-0 font-mono text-xs text-zinc-500">{pick(ed.period, locale)}</p>
+                    </div>
+                    <p className="mt-1 flex items-start gap-1.5 font-sans text-sm text-zinc-600">
+                      <MapPin className="mt-0.5 size-3 shrink-0 text-zinc-500" strokeWidth={2} aria-hidden />
+                      <span>{pick(ed.location, locale)}</span>
+                    </p>
+                  </li>
+                ))}
+            </ul>
+          </section>
+
+          <section className="border-b border-zinc-200 py-5 sm:py-6">
+            <h2 className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-900">
+              {m.resume.sectionAwardsCertificates}
+            </h2>
+            <ul className="mt-4 space-y-5 sm:space-y-6">
+              {awards.map((a) => (
+                <li key={pick(a.title, locale)}>
+                  <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                    <p className="font-display text-lg text-zinc-950">{pick(a.title, locale)}</p>
+                    <p className="shrink-0 font-mono text-xs text-zinc-500">{pick(a.period, locale)}</p>
+                  </div>
+                  <p className="mt-1 font-sans text-sm text-zinc-600">{pick(a.issuer, locale)}</p>
+                  {a.detail ? (
+                    <p className="mt-2 font-sans text-sm leading-relaxed text-zinc-700">{pick(a.detail, locale)}</p>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
           </section>
 
           <section className="py-5 sm:py-6">
@@ -167,20 +254,65 @@ export function SimpleResume({ onClose }: Props) {
           >
             <Moon className="size-5" aria-hidden />
           </button>
-          <a
-            href="/resume.pdf"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-white text-zinc-700 transition-colors hover:border-amber-800/35 hover:bg-zinc-50 hover:text-zinc-900"
-            download
+          <button
+            type="button"
+            onClick={() => setDownloadOpen(true)}
+            className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-xl border border-zinc-200 bg-white text-zinc-700 transition-colors hover:border-amber-800/35 hover:bg-zinc-50 hover:text-zinc-900"
             title={m.resume.downloadPdf}
             aria-label={m.resume.downloadPdf}
           >
             <FileDown className="size-5" aria-hidden />
-          </a>
+          </button>
           <div className="border-t border-zinc-100 px-1 py-2">
-            <LangToggle tone="light" />
+            <LangToggle tone="light" className="w-full" />
           </div>
         </div>
       </div>
+
+      {downloadOpen ? (
+        <div
+          className="fixed inset-0 z-[120] flex items-center justify-center bg-zinc-950/45 p-4 backdrop-blur-[2px]"
+          role="presentation"
+          onMouseDown={(e) => {
+            if (e.target === e.currentTarget) setDownloadOpen(false)
+          }}
+        >
+          <div
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="resume-download-title"
+            aria-describedby="resume-download-desc"
+            className="w-full max-w-sm rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.35)] sm:p-6"
+          >
+            <h2 id="resume-download-title" className="font-display text-xl text-zinc-950">
+              {m.resume.downloadConfirmTitle}
+            </h2>
+            <p id="resume-download-desc" className="mt-2 font-sans text-sm leading-relaxed text-zinc-600">
+              {m.resume.downloadConfirmBody}
+            </p>
+            <div className="mt-5 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+              <button
+                ref={downloadCancelRef}
+                type="button"
+                onClick={() => setDownloadOpen(false)}
+                className="rounded-xl border border-zinc-200 bg-white px-4 py-2.5 font-sans text-sm text-zinc-800 transition-colors hover:bg-zinc-50"
+              >
+                {m.resume.downloadCancel}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  triggerPdfDownload()
+                  setDownloadOpen(false)
+                }}
+                className="rounded-xl border border-amber-900/30 bg-amber-950 px-4 py-2.5 font-sans text-sm font-medium text-amber-50 transition-colors hover:bg-zinc-900"
+              >
+                {m.resume.downloadConfirmAction}
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </motion.div>
   )
 }

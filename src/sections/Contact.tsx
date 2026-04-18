@@ -200,12 +200,21 @@ export function Contact() {
               <DiscordIcon className="size-6" />
             </a>
           </div>
-          <a
-            href={`mailto:${contact.email}`}
-            className="font-mono text-sm text-dim transition-colors hover:text-accent"
-          >
-            {contact.email}
-          </a>
+          <div className="flex flex-col items-center gap-2 font-mono text-sm sm:items-end">
+            <a
+              href={`mailto:${contact.email}`}
+              className="text-dim transition-colors hover:text-accent"
+            >
+              {contact.email}
+            </a>
+            <a
+              href={`tel:${contact.phone.replace(/[\s().-]/g, '')}`}
+              className="text-dim transition-colors hover:text-accent"
+              aria-label={m.contact.phoneCall}
+            >
+              {contact.phone}
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

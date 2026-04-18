@@ -19,8 +19,26 @@ export const messages: Record<
       darkMode: string
       langEn: string
       langTl: string
+      /** Single language toggle: aria when current locale is English */
+      switchToTagalog: string
+      /** Single language toggle: aria when current locale is Tagalog */
+      switchToEnglish: string
     }
-    resume: { downloadPdf: string; sectionSummary: string; sectionExperience: string; sectionEducation: string; sectionSkills: string }
+    resume: {
+      downloadPdf: string
+      sectionSummary: string
+      sectionExperience: string
+      sectionEducation: string
+      eduLevelTertiary: string
+      eduLevelSecondary: string
+      eduLevelPrimary: string
+      sectionAwardsCertificates: string
+      sectionSkills: string
+      downloadConfirmTitle: string
+      downloadConfirmBody: string
+      downloadConfirmAction: string
+      downloadCancel: string
+    }
     hero: { cta: string }
     about: { eyebrow: string; title: string }
     projects: {
@@ -48,6 +66,8 @@ export const messages: Record<
       toastError: string
       toastValidation: string
       toastNotConfigured: string
+      /** `tel:` link accessible name */
+      phoneCall: string
     }
     footer: { tagline: string }
     links: { view: string; live: string }
@@ -64,13 +84,23 @@ export const messages: Record<
       darkMode: 'Dark mode',
       langEn: 'EN',
       langTl: 'TL',
+      switchToTagalog: 'Switch site language to Tagalog',
+      switchToEnglish: 'Switch site language to English',
     },
     resume: {
       downloadPdf: 'Download PDF',
       sectionSummary: 'Summary',
       sectionExperience: 'Experience',
       sectionEducation: 'Education',
+      eduLevelTertiary: 'Tertiary education',
+      eduLevelSecondary: 'Secondary education',
+      eduLevelPrimary: 'Primary education',
+      sectionAwardsCertificates: 'Awards & certificates',
       sectionSkills: 'Skills',
+      downloadConfirmTitle: 'Download résumé?',
+      downloadConfirmBody: 'You are about to download this résumé as a PDF. Continue?',
+      downloadConfirmAction: 'Download',
+      downloadCancel: 'Cancel',
     },
     hero: { cta: 'View My Work' },
     about: { eyebrow: 'ABOUT', title: 'Craft, clarity, calm systems.' },
@@ -109,6 +139,7 @@ export const messages: Record<
       toastValidation: 'Please fill in all fields with a valid email.',
       toastNotConfigured:
         'Form is not configured. Set VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, and VITE_EMAILJS_TEMPLATE_ID, then rebuild.',
+      phoneCall: 'Call phone number',
     },
     footer: { tagline: 'Built with care.' },
     links: { view: 'View', live: 'Live' },
@@ -124,13 +155,23 @@ export const messages: Record<
       darkMode: 'Dark mode',
       langEn: 'EN',
       langTl: 'TL',
+      switchToTagalog: 'Ilipat ang wika ng site sa Tagalog',
+      switchToEnglish: 'Ilipat ang wika ng site sa English',
     },
     resume: {
       downloadPdf: 'I-download ang PDF',
       sectionSummary: 'Buod',
       sectionExperience: 'Karanasan',
       sectionEducation: 'Edukasyon',
+      eduLevelTertiary: 'Edukasyong tersyarya',
+      eduLevelSecondary: 'Edukasyong sekondarya',
+      eduLevelPrimary: 'Edukasyong primarya',
+      sectionAwardsCertificates: 'Mga parangal at sertipiko',
       sectionSkills: 'Mga kasanayan',
+      downloadConfirmTitle: 'I-download ang résumé?',
+      downloadConfirmBody: 'I-download mo ang résumé na ito bilang PDF. Magpatuloy?',
+      downloadConfirmAction: 'I-download',
+      downloadCancel: 'Kanselahin',
     },
     hero: { cta: 'Tingnan ang mga proyekto' },
     about: {
@@ -172,6 +213,7 @@ export const messages: Record<
       toastValidation: 'Punan ang lahat ng field at gumamit ng wastong email.',
       toastNotConfigured:
         'Hindi pa naka-set ang form. Ilagay ang VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, at VITE_EMAILJS_TEMPLATE_ID, tapos i-rebuild.',
+      phoneCall: 'Tumawag sa numero',
     },
     footer: { tagline: 'Itinayo nang may pag-aalaga.' },
     links: { view: 'Tingnan', live: 'Live' },

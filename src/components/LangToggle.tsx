@@ -13,38 +13,24 @@ export function LangToggle({ className = '', tone = 'dark' }: Props) {
 
   const shell =
     tone === 'light'
-      ? 'border border-zinc-300 bg-zinc-50/80'
-      : 'border border-white/10'
+      ? 'border border-zinc-300 bg-zinc-50/80 text-zinc-800'
+      : 'border border-white/10 text-ink'
 
-  const active = tone === 'light' ? 'bg-amber-100 text-amber-950' : 'bg-accent/20 text-accent'
-  const idle = tone === 'light' ? 'text-zinc-600 hover:text-zinc-900' : 'text-dim hover:text-ink'
+  const activeStyles =
+    tone === 'light'
+      ? 'bg-amber-100 text-amber-950 hover:bg-amber-200/90'
+      : 'bg-accent/20 text-accent hover:bg-accent/25'
+
+  const toggle = () => setLocale(locale === 'en' ? 'tl' : 'en')
 
   return (
-    <div
-      className={`flex items-center rounded-sm p-0.5 font-mono text-[11px] uppercase tracking-wider ${shell} ${className}`}
-      role="group"
-      aria-label="Language"
+    <button
+      type="button"
+      onClick={toggle}
+      className={`inline-flex min-w-[2.75rem] cursor-pointer items-center justify-center rounded-sm px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider transition-colors ${shell} ${activeStyles} ${className}`}
+      aria-label={locale === 'en' ? m.nav.switchToTagalog : m.nav.switchToEnglish}
     >
-      <button
-        type="button"
-        onClick={() => setLocale('en')}
-        aria-pressed={locale === 'en'}
-        className={`rounded-sm px-2.5 py-1 transition-colors ${
-          locale === 'en' ? active : idle
-        }`}
-      >
-        {m.nav.langEn}
-      </button>
-      <button
-        type="button"
-        onClick={() => setLocale('tl')}
-        aria-pressed={locale === 'tl'}
-        className={`rounded-sm px-2.5 py-1 transition-colors ${
-          locale === 'tl' ? active : idle
-        }`}
-      >
-        {m.nav.langTl}
-      </button>
-    </div>
+      {locale === 'en' ? m.nav.langEn : m.nav.langTl}
+    </button>
   )
 }

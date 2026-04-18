@@ -3,7 +3,7 @@ import { useLenisInstance } from '../context/LenisContext'
 
 const SECTION_IDS = ['about', 'projects', 'skills', 'awards', 'contact'] as const
 
-export type NavSection = (typeof SECTION_IDS)[number]
+export type NavSection = (typeof SECTION_IDS)[number] | 'hero'
 
 /**
  * Viewport Y from top: a section counts as “current” once its top edge is at or above this line.
@@ -24,6 +24,17 @@ export function useActiveSection() {
       const top = el.getBoundingClientRect().top
       if (top <= ACTIVATION_TOP_PX) {
         current = id
+      }
+    }
+    if (current === null) {
+      const heroEl = document.getElementById('hero')
+      const aboutEl = document.getElementById('about')
+      if (
+        heroEl &&
+        aboutEl &&
+        aboutEl.getBoundingClientRect().top > ACTIVATION_TOP_PX
+      ) {
+        current = 'hero'
       }
     }
     setActive(current)

@@ -20,8 +20,9 @@ export function Hero() {
   const parallaxY = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : 72])
   const mx = useMotionValue(50)
   const my = useMotionValue(50)
-  const smx = useSpring(mx, { stiffness: 180, damping: 26, mass: 0.35 })
-  const smy = useSpring(my, { stiffness: 180, damping: 26, mass: 0.35 })
+  const spotlightSpring = { stiffness: 72, damping: 20, mass: 1.15 }
+  const smx = useSpring(mx, spotlightSpring)
+  const smy = useSpring(my, spotlightSpring)
   const spotlight = useMotionTemplate`radial-gradient(520px circle at ${smx}% ${smy}%, rgba(201, 169, 110, 0.16), transparent 62%)`
 
   const roleStrings = useMemo(
@@ -43,18 +44,12 @@ export function Hero() {
     [reduced, mx, my],
   )
 
-  const onPointerLeave = useCallback(() => {
-    mx.set(50)
-    my.set(45)
-  }, [mx, my])
-
   return (
     <section
       id="hero"
       ref={sectionRef}
       onPointerMove={onPointerMove}
-      onPointerLeave={onPointerLeave}
-      className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden px-4 pb-16 pt-28 sm:px-6 lg:px-8"
+      className="relative flex min-h-[100dvh] scroll-mt-24 flex-col justify-center overflow-hidden px-4 pb-16 pt-28 sm:px-6 lg:px-8"
     >
       <motion.div style={{ y: parallaxY }} className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-canvas" />
@@ -72,7 +67,7 @@ export function Hero() {
         <div className="noise-overlay" />
       </motion.div>
 
-      <div className="relative z-[1] mx-auto w-full max-w-7xl">
+      <div className="relative z-[1] mx-auto w-full max-w-7xl pointer-events-auto">
         <motion.h1
           initial={reduced ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -45,8 +45,8 @@ export type TechStackItem = {
 }
 
 export const site = {
-  title: { en: 'Mark Benson Bellen — Developer', tl: 'Mark Benson Bellen — Developer' },
-  description: { en: 'Developer portfolio.', tl: 'Portfolio ng developer.' },
+  title: { en: 'Mark Benson Bellen — Portfolio', tl: 'Mark Benson Bellen — Portfolio' },
+  description: { en: 'My portfolio.', tl: 'Ang portfolio ko.' },
   monogram: 'MBB',
   name: { en: 'Mark Benson Bellen', tl: 'Mark Benson Bellen' },
 }
@@ -56,7 +56,7 @@ export const hero = {
   roles: [
     { en: 'Full Stack Developer', tl: 'Full Stack Developer' },
     { en: 'Problem Solver', tl: 'Tagapaglutas ng problema' },
-    { en: 'Open Source Contributor', tl: 'Contributor sa open source' },
+    { en: 'AI enthusiast', tl: 'Mahilig sa AI' },
   ] as const satisfies ReadonlyArray<L>,
   ctaHref: '#projects',
 }
@@ -95,10 +95,10 @@ export const projects: Project[] = [
   },
   {
     title: { en: 'Pandapp', tl: 'Pandapp' },
-    blurb: { en: 'A platform for students to manage their academic records and activities.', tl: 'Isang platform para sa mga estudyante na mag-manage ng kanilang mga akademikong rekord at aktibidad.' },
+    blurb: { en: 'A site to manage your school schedule, plan your daily routine, and generate quizzes automatically or by hand.', tl: 'Isang site para sa pamahalaan ng iyong school schedule, plan ng iyong daily routine, at gumawa ng quizzes automatically or by hand.' },
     blurbHover: {
-      en: 'Manage your school schedule, plan your daily routine, and generate quizzes automatically or by hand. Everything you build stays in your quiz library, ready whenever you need it.',
-      tl: 'Pamahalaan ang iyong school schedule, plan ang iyong daily routine, at gumawa ng quizzes automatically or by hand. Lahat ng bagay na gumawa mo ay nasa iyong quiz library, handa kapag kailangan mo ito.',
+      en: 'A site to manage your school schedule, plan your daily routine, and generate quizzes automatically or by hand. Everything you build stays in your quiz library, ready whenever you need it.',
+      tl: 'Isang site para sa pamahalaan ng iyong school schedule, plan ng iyong daily routine, at gumawa ng quizzes automatically or by hand. Lahat ng bagay na gumawa mo ay nasa iyong quiz library, handa kapag kailangan mo ito.',
     },
     tags: ['REACT+VITE', 'TAILWIND', 'LOCAL STORAGE'],
     images: ['/images/projects/pandapp/landing.png','/images/projects/pandapp/schoolschedule.png','/images/projects/pandapp/scheduler.png', '/images/projects/pandapp/quiz.png', '/images/projects/pandapp/libray.png'],
@@ -220,10 +220,12 @@ export const contact = {
     tl: 'Bukas ako sa freelance, kolaborasyon, at usapin tungkol sa maingat na software.',
   },
   email: 'markbensonbellen0@gmail.com',
+  /** Spacing ok; used for display and `tel:` (spaces stripped). Set your real number. */
+  phone: '+63 943 5666 686',
   social: {
     facebook: 'https://www.facebook.com/mariooo.23',
     linkedin: 'https://www.linkedin.com/in/mark-benson-bellen-9020b82b5/',
-    discord: 'https://discord.com/okay_lang_ako',
+    discord: 'https://discord.gg/okay_lang_ako',
   },
 }
 
@@ -238,53 +240,80 @@ export type SimpleResumeExperience = {
   bullets: L[]
 }
 
+/** Résumé education band — drives the localized section label in the simple résumé. */
+export type SimpleResumeEducationLevel = 'tertiary' | 'secondary' | 'primary'
+
+export type SimpleResumeEducation = {
+  level: SimpleResumeEducationLevel
+  school: L
+  /** Year or range shown on the résumé (mock until you replace). */
+  period: L
+  /** City / region only (no coursework copy). */
+  location: L
+}
+
 /** Plain one-column résumé content (simple layout view). */
 export const simpleResume = {
-  headline: { en: 'Alex Morgan', tl: 'Alex Morgan' },
-  tagline: { en: 'Full stack developer', tl: 'Full stack developer' },
-  location: { en: 'Remote', tl: 'Remote' },
+  headline: { en: 'Mark Benson Bellen', tl: 'Mark Benson Bellen' },
+  tagline: { en: 'Full Stack Developer', tl: 'Full Stack Developer' },
+  location: { en: 'Philippines · Remote-friendly', tl: 'Pilipinas · Bukas sa remote' },
   summary: {
-    en: 'Interfaces and APIs with an emphasis on clarity, performance, and maintainability. Open to freelance and product teams.',
-    tl: 'Mga interface at API na may diin sa linaw, performance, at pagpapanatili. Bukas sa freelance at product teams.',
+    en: "Full Stack Developer with 2+ years shipping web apps in React and Laravel. Comfortable with Vite and React on the frontend and Laravel with Inertia.js when a backend is in play. I sweat the small UX details and use AI tools (Cursor, Claude, Gemini) to move faster on the repetitive parts so I can focus on what actually needs a human eye.",
+    tl: 'Full Stack Developer na may 2+ taon sa pagbuo ng web app gamit ang React at Laravel. Sanay sa Vite at React sa frontend at Laravel kasama ang Inertia.js kapag may backend. Pinapahalagahan ko ang maliliit na detalye ng UX at ginagamit ang AI (Cursor, Claude, Gemini) para mapabilis ang paulit-ulit na gawain at mailaan ang oras sa bagay na kailangan ng tao.',
   },
   experiences: [
     {
-      company: { en: 'Northwind Labs', tl: 'Northwind Labs' },
-      role: { en: 'Senior Software Engineer', tl: 'Senior Software Engineer' },
-      period: { en: '2021 — Present', tl: '2021 — Kasalukuyan' },
-      bullets: [
-        {
-          en: 'Led delivery of customer-facing analytics and billing integrations.',
-          tl: 'Nanguna sa analytics at billing integrations na nakaharap sa customer.',
-        },
-        {
-          en: 'Reduced p95 API latency through caching, query tuning, and edge routing.',
-          tl: 'Binawasan ang p95 API latency sa caching, query tuning, at edge routing.',
-        },
-      ],
-    },
-    {
-      company: { en: 'Harbor Studio', tl: 'Harbor Studio' },
+      company: { en: 'Freelance & independent projects', tl: 'Freelance at mga independent na proyekto' },
       role: { en: 'Full Stack Developer', tl: 'Full Stack Developer' },
-      period: { en: '2018 — 2021', tl: '2018 — 2021' },
+      period: { en: '2023 — Present', tl: '2023 — Kasalukuyan' },
       bullets: [
         {
-          en: 'Shipped design-system-backed React apps with accessible patterns.',
-          tl: 'Nag-ship ng React apps na may design system at accessible patterns.',
+          en: 'Built TutoyHub — a Laravel, Inertia.js, and MySQL platform with showroom, auctions, seller/admin dashboards, and role-based access.',
+          tl: 'Binuo ang TutoyHub — isang Laravel, Inertia.js, at MySQL na platform na may showroom, auction, seller/admin dashboard, at role-based access.',
         },
         {
-          en: 'Built Node services and PostgreSQL schemas for multi-tenant SaaS.',
-          tl: 'Gumawa ng Node services at PostgreSQL schema para sa multi-tenant SaaS.',
+          en: 'Shipped Pandapp (React, Vite, Tailwind) for school schedules, routines, and a quiz library; deployed Dolusapp for multi-file keyword search with offline-friendly browser caching.',
+          tl: 'Inilabas ang Pandapp (React, Vite, Tailwind) para sa school schedule, routine, at quiz library; inilabas ang Dolusapp para sa keyword search sa maraming file na offline-friendly sa browser cache.',
+        },
+        {
+          en: 'Delivered a production company site for a cleaning-services client with React, Vite, and Tailwind — clear services, pricing, and contact flows.',
+          tl: 'Naghatid ng production na company site para sa kliyenteng cleaning service gamit ang React, Vite, at Tailwind — malinaw na serbisyo, presyo, at contact.',
         },
       ],
     },
   ] satisfies SimpleResumeExperience[],
-  education: {
-    school: { en: 'B.S. Computer Science', tl: 'B.S. Computer Science' },
-    detail: { en: 'University example — relevant coursework in systems & HCI.', tl: 'Halimbawa ng unibersidad — systems at HCI.' },
-  },
+  /** Mock rows for layout; replace with real programs and years when ready. */
+  education: [
+    {
+      level: 'tertiary',
+      school: {
+        en: 'B.S. Information Technology — National College of Science and Technology',
+        tl: 'B.S. Information Technology — National College of Science and Technology',
+      },
+      period: { en: '2023 — 2027 (expected)', tl: '2023 — 2027 (inaasahan)' },
+      location: { en: 'Dasmariñas, Cavite, Philippines', tl: 'Dasmariñas, Cavite, Pilipinas' },
+    },
+    {
+      level: 'secondary',
+      school: {
+        en: 'Senior High School — STEM strand — Southern Philippines Institute of Science and Technology',
+        tl: 'Senior High School — STEM — Southern Philippines Institute of Science and Technology',
+      },
+      period: { en: '2021 — 2023', tl: '2021 — 2023' },
+      location: { en: 'Imus, Cavite, Philippines', tl: 'Imus, Cavite, Pilipinas' },
+    },
+    {
+      level: 'primary',
+      school: {
+        en: 'Elementary — God The Almighty Academy INC.',
+        tl: 'Elementarya — God The Almighty Academy INC.',
+      },
+      period: { en: '2015 — 2021', tl: '2015 — 2021' },
+      location: { en: 'Dasmariñas, Cavite, Philippines', tl: 'Dasmariñas, Cavite, Pilipinas' },
+    },
+  ] satisfies SimpleResumeEducation[],
   skills: {
-    en: 'React, Next.js, TypeScript, Node.js, PostgreSQL, Docker, Tailwind CSS, CI/CD.',
-    tl: 'React, Next.js, TypeScript, Node.js, PostgreSQL, Docker, Tailwind CSS, CI/CD.',
+    en: 'Frontend: React, Vite, TypeScript, Tailwind CSS, shadcn/ui. Backend: Laravel, MySQL, Inertia.js. AI-assisted workflows with Gemini, Claude, and Cursor.',
+    tl: 'Frontend: React, Vite, TypeScript, Tailwind CSS, shadcn/ui. Backend: Laravel, MySQL, Inertia.js. AI-assisted na workflow gamit ang Gemini, Claude, at Cursor.',
   },
 }

@@ -121,6 +121,7 @@ export function Navbar({ resumeOpen = false, onLightMode }: NavbarProps) {
                 e.preventDefault()
                 onNav('#hero')
               }}
+              aria-current={active === 'hero' ? 'page' : undefined}
               className="shrink-0 text-ink transition-opacity hover:opacity-90"
               aria-label="Home"
             >
@@ -246,8 +247,8 @@ export function Navbar({ resumeOpen = false, onLightMode }: NavbarProps) {
                   <Sun className="size-8 text-accent" aria-hidden />
                 </motion.button>
               ) : null}
-              <motion.div layout={false} variants={mobileNavItem} className="mt-auto">
-                <LangToggle className="justify-center" />
+              <motion.div layout={false} variants={mobileNavItem} className="mt-auto flex justify-center">
+                <LangToggle />
               </motion.div>
             </motion.nav>
           </motion.div>
