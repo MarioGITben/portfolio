@@ -85,8 +85,8 @@ export const about = {
 /** Shown in the Projects section (responsive grid); add or remove entries as needed. */
 export const projects: Project[] = [
   {
-    title: { en: 'TutoyHub', tl: 'TutoyHub' },
-    blurb: { en: 'One platform for toys. Auction & showroom.', tl: 'Isang platform para sa pag-aaral at pagtuturo ng mga konsepto sa programming.' },
+    title: { en: 'TutoyHub — Capstone Project', tl: 'TutoyHub — Capstone Project' },
+    blurb: { en: 'A platform for toy collectors to browse a curated showroom, bid on rare finds, and upload 3D models for an immersive viewing experience.', tl: 'Isang platform para sa kolektor ng laruan na mag-browse sa isang na-curate na showroom, mag-bid sa mga bihirang mahanap, at mag-upload ng mga 3D na modelo para sa nakaka-engganyong karanasan sa panonood.' },
     blurbHover: {
       en: 'A platform where toy collectors can browse a curated showroom, bid on rare finds, and upload 3D models for an immersive viewing experience. One platform, two experiences, zero compromise.', tl: 'Isang platform kung saan maaaring mag-browse ang mga kolektor ng laruan sa isang na-curate na showroom, mag-bid sa mga bihirang mahanap, at mag-upload ng mga 3D na modelo para sa nakaka-engganyong karanasan sa panonood. Isang platform, dalawang karanasan, walang kompromiso.'
     },
