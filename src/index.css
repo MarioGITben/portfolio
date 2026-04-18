@@ -57,6 +57,104 @@
   }
 }
 
+/* Résumé “Save as PDF” — isolate print layout to the light résumé surface */
+@media print {
+  html.resume-printing {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  html.resume-printing body * {
+    visibility: hidden;
+  }
+
+  html.resume-printing .resume-print-root,
+  html.resume-printing .resume-print-root * {
+    visibility: visible;
+  }
+
+  html.resume-printing .resume-print-exclude,
+  html.resume-printing .resume-print-exclude * {
+    display: none !important;
+  }
+
+  html.resume-printing .resume-print-root {
+    position: static !important;
+    inset: auto !important;
+    z-index: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  html.resume-printing .resume-print-scroll {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 1.25rem 1.5rem 1.5rem !important;
+  }
+
+  /* On-screen résumé follows site language; saved PDF uses English-only clone. */
+  html.resume-printing .resume-print-screen {
+    display: none !important;
+  }
+
+  html.resume-printing .resume-print-pdf-clone {
+    display: block !important;
+  }
+
+  @page {
+    margin: 0.55in;
+  }
+
+  /* PDF / print: explicit point sizes so body copy is not shrunk vs screen */
+  html.resume-printing .resume-print-article {
+    max-width: 100% !important;
+    font-size: 10.75pt;
+    line-height: 1.42;
+  }
+
+  html.resume-printing .resume-print-article h1 {
+    font-size: 22pt !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  html.resume-printing .resume-print-article > header p {
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+
+  html.resume-printing .resume-print-article section > h2 {
+    font-size: 9pt !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  html.resume-printing .resume-print-article section p,
+  html.resume-printing .resume-print-article section li,
+  html.resume-printing .resume-print-article section ul ul li {
+    font-size: 10.75pt !important;
+    line-height: 1.45 !important;
+  }
+
+  html.resume-printing .resume-print-article section .font-display.text-xl,
+  html.resume-printing .resume-print-article section .font-display.text-lg {
+    font-size: 13.5pt !important;
+    line-height: 1.25 !important;
+  }
+
+  html.resume-printing .resume-print-article section p.font-mono,
+  html.resume-printing .resume-print-article section .font-mono.text-xs {
+    font-size: 9.25pt !important;
+    line-height: 1.3 !important;
+  }
+
+  html.resume-printing .resume-print-article header img {
+    max-height: 52pt !important;
+    width: auto !important;
+  }
+}
+
 /* Subtle film grain — no gradients on UI surfaces per spec; this is fixed noise only */
 .noise-overlay {
   pointer-events: none;

@@ -25,7 +25,6 @@ export const messages: Record<
       switchToEnglish: string
     }
     resume: {
-      downloadPdf: string
       sectionSummary: string
       sectionExperience: string
       sectionEducation: string
@@ -34,10 +33,6 @@ export const messages: Record<
       eduLevelPrimary: string
       sectionAwardsCertificates: string
       sectionSkills: string
-      downloadConfirmTitle: string
-      downloadConfirmBody: string
-      downloadConfirmAction: string
-      downloadCancel: string
     }
     hero: { cta: string }
     about: { eyebrow: string; title: string }
@@ -68,6 +63,10 @@ export const messages: Record<
       toastNotConfigured: string
       /** `tel:` link accessible name */
       phoneCall: string
+      copyEmail: string
+      copyPhone: string
+      copiedEmail: string
+      copiedPhone: string
     }
     footer: { tagline: string }
     links: { view: string; live: string }
@@ -88,7 +87,6 @@ export const messages: Record<
       switchToEnglish: 'Switch site language to English',
     },
     resume: {
-      downloadPdf: 'Download PDF',
       sectionSummary: 'Summary',
       sectionExperience: 'Experience',
       sectionEducation: 'Education',
@@ -97,10 +95,6 @@ export const messages: Record<
       eduLevelPrimary: 'Primary education',
       sectionAwardsCertificates: 'Awards & certificates',
       sectionSkills: 'Skills',
-      downloadConfirmTitle: 'Download résumé?',
-      downloadConfirmBody: 'You are about to download this résumé as a PDF. Continue?',
-      downloadConfirmAction: 'Download',
-      downloadCancel: 'Cancel',
     },
     hero: { cta: 'View My Work' },
     about: { eyebrow: 'ABOUT', title: 'Craft, clarity, calm systems.' },
@@ -140,6 +134,10 @@ export const messages: Record<
       toastNotConfigured:
         'Form is not configured. Set VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, and VITE_EMAILJS_TEMPLATE_ID, then rebuild.',
       phoneCall: 'Call phone number',
+      copyEmail: 'Copy email address',
+      copyPhone: 'Copy phone number',
+      copiedEmail: 'Email copied to clipboard',
+      copiedPhone: 'Phone number copied to clipboard',
     },
     footer: { tagline: 'Built with care.' },
     links: { view: 'View', live: 'Live' },
@@ -159,7 +157,6 @@ export const messages: Record<
       switchToEnglish: 'Ilipat ang wika ng site sa English',
     },
     resume: {
-      downloadPdf: 'I-download ang PDF',
       sectionSummary: 'Buod',
       sectionExperience: 'Karanasan',
       sectionEducation: 'Edukasyon',
@@ -168,10 +165,6 @@ export const messages: Record<
       eduLevelPrimary: 'Edukasyong primarya',
       sectionAwardsCertificates: 'Mga parangal at sertipiko',
       sectionSkills: 'Mga kasanayan',
-      downloadConfirmTitle: 'I-download ang résumé?',
-      downloadConfirmBody: 'I-download mo ang résumé na ito bilang PDF. Magpatuloy?',
-      downloadConfirmAction: 'I-download',
-      downloadCancel: 'Kanselahin',
     },
     hero: { cta: 'Tingnan ang mga proyekto' },
     about: {
@@ -214,8 +207,22 @@ export const messages: Record<
       toastNotConfigured:
         'Hindi pa naka-set ang form. Ilagay ang VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, at VITE_EMAILJS_TEMPLATE_ID, tapos i-rebuild.',
       phoneCall: 'Tumawag sa numero',
+      copyEmail: 'Kopyahin ang email',
+      copyPhone: 'Kopyahin ang numero ng telepono',
+      copiedEmail: 'Nakopya ang email sa clipboard',
+      copiedPhone: 'Nakopya ang numero sa clipboard',
     },
     footer: { tagline: 'Itinayo nang may pag-aalaga.' },
     links: { view: 'Tingnan', live: 'Live' },
   },
 }
+
+/** English-only — save-as-PDF flow (shown regardless of site language). */
+export const resumeSaveEnglish = {
+  actionShort: 'Save as PDF',
+  confirmTitle: 'Save this résumé as a PDF file?',
+  confirmBody:
+    'Your browser will open a window where you can save this page as a PDF file. Under destination, choose “Save as PDF”. If you only see a list of devices, pick the entry that saves to a PDF file, choose where to save it, then confirm. The file will match what you see here.',
+  confirmPrimary: 'Save as PDF file',
+  cancel: 'Cancel',
+} as const

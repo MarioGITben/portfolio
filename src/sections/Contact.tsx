@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState, type FormEvent } from 'react'
+import { useCopyContact, phoneDigitsForCopy } from '../hooks/useCopyContact'
 import { pick, useMessages } from '../hooks/useMessages'
 import { ArrowUpRight, Facebook, Linkedin } from 'lucide-react'
 import { contact } from '../data'
@@ -26,6 +27,7 @@ export function Contact() {
   const reduced = useReducedMotion()
   const { locale } = useLanguage()
   const { showToast } = useToast()
+  const { copy: copyContact } = useCopyContact()
   const m = useMessages()
   const sectionRef = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
@@ -201,19 +203,24 @@ export function Contact() {
             </a>
           </div>
           <div className="flex flex-col items-center gap-2 font-mono text-sm sm:items-end">
-            <a
-              href={`mailto:${contact.email}`}
-              className="text-dim transition-colors hover:text-accent"
+            <button
+              type="button"
+              onClick={() => copyContact('email', contact.email)}
+              className="cursor-pointer border-0 bg-transparent p-0 text-dim transition-colors hover:text-accent"
+              title={m.contact.copyEmail}
+              aria-label={m.contact.copyEmail}
             >
               {contact.email}
-            </a>
-            <a
-              href={`tel:${contact.phone.replace(/[\s().-]/g, '')}`}
-              className="text-dim transition-colors hover:text-accent"
-              aria-label={m.contact.phoneCall}
+            </button>
+            <button
+              type="button"
+              onClick={() => copyContact('phone', phoneDigitsForCopy(contact.phone))}
+              className="cursor-pointer border-0 bg-transparent p-0 text-dim transition-colors hover:text-accent"
+              title={m.contact.copyPhone}
+              aria-label={m.contact.copyPhone}
             >
               {contact.phone}
-            </a>
+            </button>
           </div>
         </motion.div>
       </div>
