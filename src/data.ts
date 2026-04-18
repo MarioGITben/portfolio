@@ -313,7 +313,15 @@ export const simpleResume = {
     },
   ] satisfies SimpleResumeEducation[],
   skills: {
-    en: 'Frontend: React, Vite, TypeScript, Tailwind CSS, shadcn/ui. Backend: Laravel, MySQL, Inertia.js. AI-assisted workflows with Gemini, Claude, and Cursor.',
-    tl: 'Frontend: React, Vite, TypeScript, Tailwind CSS, shadcn/ui. Backend: Laravel, MySQL, Inertia.js. AI-assisted na workflow gamit ang Gemini, Claude, at Cursor.',
+    en: [
+      'Frontend: React, Vite, TypeScript, Tailwind CSS, shadcn/ui.',
+      'Backend: Laravel, MySQL, Inertia.js.',
+      'AI-assisted workflows with Gemini, Claude, and Cursor.',
+    ],
+    tl: [
+      'Frontend: React, Vite, TypeScript, Tailwind CSS, shadcn/ui.',
+      'Backend: Laravel, MySQL, Inertia.js.',
+      'AI-assisted na workflow gamit ang Gemini, Claude, at Cursor.',
+    ],
   },
 }

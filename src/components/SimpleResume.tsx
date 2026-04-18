@@ -233,7 +233,11 @@ export function SimpleResume({ onClose }: Props) {
             <h2 className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-900">
               {m.resume.sectionSkills}
             </h2>
-            <p className="mt-3 font-sans text-sm leading-relaxed text-zinc-700">{pick(simpleResume.skills, locale)}</p>
+            <div className="mt-3 flex flex-col gap-2 font-sans text-sm leading-relaxed text-zinc-700">
+              {simpleResume.skills[locale].map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
+            </div>
           </section>
         </motion.article>
       </div>
