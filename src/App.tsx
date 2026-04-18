@@ -1,6 +1,7 @@
 import { AnimatePresence, LayoutGroup } from 'framer-motion'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Navbar } from './components/Navbar'
+import { SiteLoader } from './components/SiteLoader'
 import { Footer } from './components/Footer'
 import { SimpleResume } from './components/SimpleResume'
 import { SplitWipeOverlay } from './components/SplitWipeOverlay'
@@ -75,6 +76,7 @@ export default function App() {
 
   return (
     <LayoutGroup>
+      <SiteLoader />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-accent focus:px-4 focus:py-2 focus:text-canvas focus:outline-none"
