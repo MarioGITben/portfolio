@@ -245,26 +245,30 @@ export const simpleResume = {
   tagline: { en: 'Full Stack Developer', tl: 'Full Stack Developer' },
   location: { en: 'Philippines · Remote-friendly', tl: 'Pilipinas · Bukas sa remote' },
   summary: {
-    en: "Full Stack Developer with 2+ years shipping web apps in React and Laravel. Comfortable with Vite and React on the frontend and Laravel with Inertia.js when a backend is in play. I sweat the small UX details and use AI tools (Cursor, Claude, Gemini) to move faster on the repetitive parts so I can focus on what actually needs a human eye.",
-    tl: 'Full Stack Developer na may 2+ taon sa pagbuo ng web app gamit ang React at Laravel. Sanay sa Vite at React sa frontend at Laravel kasama ang Inertia.js kapag may backend. Pinapahalagahan ko ang maliliit na detalye ng UX at ginagamit ang AI (Cursor, Claude, Gemini) para mapabilis ang paulit-ulit na gawain at mailaan ang oras sa bagay na kailangan ng tao.',
+    en: "Full Stack Developer with 2+ years of hands-on experience building and delivering modern web applications using React, Laravel, Vite, and Inertia.js. Passionate about creating intuitive user experiences and implementing strong security measures. I actively use AI tools (Cursor, Claude, Gemini) across the full development process — including system design, coding, and optimization — to build better systems faster without compromising quality.",
+    tl: 'Full Stack Developer na may 2+ taon sa pagbuo ng web app gamit ang React at Laravel. Sanay sa Vite at React sa frontend at Laravel kasama ang Inertia.js kapag may backend. Nagustuhan ko ang pagbuo ng intuitive user experiences at pag-implement ng mabilis na security measures. Ginagamit ko ang mga AI tools (Cursor, Claude, Gemini) sa buong proseso ng pagbuo — kasama ang system design, coding, at optimization — para magbuo ng mas mabilis na sistema nang hindi kami nag-aabante sa kalidad.',
   },
   experiences: [
     {
       company: { en: 'Freelance & independent projects', tl: 'Freelance at mga independent na proyekto' },
-      role: { en: 'Full Stack Developer', tl: 'Full Stack Developer' },
+      role: { en: 'Web application Developer', tl: 'Web application Developer' },
       period: { en: '2023 — Present', tl: '2023 — Kasalukuyan' },
       bullets: [
         {
-          en: 'Built TutoyHub — a Laravel, Inertia.js, and MySQL platform with showroom, auctions, seller/admin dashboards, and role-based access.',
-          tl: 'Binuo ang TutoyHub — isang Laravel, Inertia.js, at MySQL na platform na may showroom, auction, seller/admin dashboard, at role-based access.',
+          en: 'Developed TutoyHub, a comprehensive Laravel + Inertia.js + MySQL web platform featuring live showroom, auction system, seller and admin dashboards, and secure role-based access control.',
+          tl: 'Binuo ang TutoyHub — isang Laravel, Inertia.js, at MySQL na web application na may showroom, auction, seller/admin dashboard, at role-based access.',
         },
         {
-          en: 'Shipped Pandapp (React, Vite, Tailwind) for school schedules, routines, and a quiz library; deployed Dolusapp for multi-file keyword search with offline-friendly browser caching.',
-          tl: 'Inilabas ang Pandapp (React, Vite, Tailwind) para sa school schedule, routine, at quiz library; inilabas ang Dolusapp para sa keyword search sa maraming file na offline-friendly sa browser cache.',
+          en: 'Deployed Pandapp (React, Vite, Tailwind) as a school schedule, routine, and quiz library with offline-friendly browser caching.',
+          tl: 'Inilabas ang Pandapp (React, Vite, Tailwind) para sa school schedule, routine, at quiz library gamit ang offline-friendly browser caching.',
         },
         {
-          en: 'Delivered a production company site for a cleaning-services client with React, Vite, and Tailwind — clear services, pricing, and contact flows.',
-          tl: 'Naghatid ng production na company site para sa kliyenteng cleaning service gamit ang React, Vite, at Tailwind — malinaw na serbisyo, presyo, at contact.',
+          en: 'Deployed Dolusapp for multi-file keyword search with offline-friendly browser caching.',
+          tl: 'Inilabas ang Dolusapp para sa multi-file keyword search gamit ang offline-friendly browser caching.',
+        },
+        {
+          en: 'Delivered a modern, conversion-focused website for a cleaning services company using React, Vite, and Tailwind, emphasizing clear service presentation, transparent pricing, and smooth customer inquiry flows.',
+          tl: 'Binuo ang modern, conversion-focused na website para sa kumpanya ng cleaning service gamit ang React, Vite, at Tailwind — malinaw na pagpapakita ng serbisyo, transparent na presyo, at smooth na flow ng customer inquiry.',
         },
       ],
     },
@@ -302,12 +306,14 @@ export const simpleResume = {
     en: [
       'Frontend: React, Vite, TypeScript, Tailwind CSS, shadcn/ui.',
       'Backend: Laravel, MySQL, Inertia.js.',
-      'AI-assisted workflows with Gemini, Claude, and Cursor.',
+      'Version control: Github, Git.',
+      'AI development: Cursor, Claude, Gemini (used for architecture, coding, and optimization)',
     ],
     tl: [
       'Frontend: React, Vite, TypeScript, Tailwind CSS, shadcn/ui.',
       'Backend: Laravel, MySQL, Inertia.js.',
-      'AI-assisted na workflow gamit ang Gemini, Claude, at Cursor.',
+      'Version control: Github, Git.',
+      'AI development: Cursor, Claude, Gemini (used for architecture, coding, and optimization)',
     ],
   },
 }
