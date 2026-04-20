@@ -267,8 +267,8 @@ export const simpleResume = {
           tl: 'Inilabas ang Dolusapp para sa multi-file keyword search gamit ang offline-friendly browser caching.',
         },
         {
-          en: 'Delivered a modern, conversion-focused website for a cleaning services company using React, Vite, and Tailwind, emphasizing clear service presentation, transparent pricing, and smooth customer inquiry flows.',
-          tl: 'Binuo ang modern, conversion-focused na website para sa kumpanya ng cleaning service gamit ang React, Vite, at Tailwind — malinaw na pagpapakita ng serbisyo, transparent na presyo, at smooth na flow ng customer inquiry.',
+          en: 'Designed and delivered a responsive website for a cleaning services company using React, Vite, and Tailwind CSS, emphasizing clear service displays, pricing transparency, and optimized customer inquiry processes.',
+          tl: 'Binuo ang responsive website para sa kumpanya ng cleaning service gamit ang React, Vite, at Tailwind CSS — malinaw na pagpapakita ng serbisyo, transparent na presyo, at optimized na flow ng customer inquiry.',
         },
       ],
     },
