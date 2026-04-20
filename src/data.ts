@@ -245,7 +245,7 @@ export const simpleResume = {
   tagline: { en: 'Full Stack Developer', tl: 'Full Stack Developer' },
   location: { en: 'Philippines · Remote-friendly', tl: 'Pilipinas · Bukas sa remote' },
   summary: {
-    en: "Full Stack Developer with 2+ years of hands-on experience building and delivering modern web applications using React, Laravel, Vite, and Inertia.js. Passionate about creating intuitive user experiences and implementing strong security measures. I actively use AI tools (Cursor, Claude, Gemini) across the full development process — including system design, coding, and optimization — to build better systems faster without compromising quality.",
+    en: "Full Stack Developer with 2+ years of hands-on experience building and delivering modern web applications using React, Laravel, Vite, and Inertia.js. Passionate about creating intuitive user experiences and implementing strong security measures. I actively use AI tools (Cursor, Claude, Gemini) across the full development process including system design, coding, and optimization to build better systems faster without compromising quality.",
     tl: 'Full Stack Developer na may 2+ taon sa pagbuo ng web app gamit ang React at Laravel. Sanay sa Vite at React sa frontend at Laravel kasama ang Inertia.js kapag may backend. Nagustuhan ko ang pagbuo ng intuitive user experiences at pag-implement ng mabilis na security measures. Ginagamit ko ang mga AI tools (Cursor, Claude, Gemini) sa buong proseso ng pagbuo — kasama ang system design, coding, at optimization — para magbuo ng mas mabilis na sistema nang hindi kami nag-aabante sa kalidad.',
   },
   experiences: [
