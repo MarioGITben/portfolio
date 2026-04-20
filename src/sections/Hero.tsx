@@ -1,5 +1,5 @@
-import { motion, useMotionTemplate, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion'
-import { useCallback, useMemo, useRef } from 'react'
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { hero } from '../data'
 import { MagneticButton } from '../components/MagneticButton'
 import { Typewriter } from '../components/Typewriter'
@@ -18,12 +18,16 @@ export function Hero() {
     offset: ['start start', 'end start'],
   })
   const parallaxY = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : 72])
-  const mx = useMotionValue(50)
-  const my = useMotionValue(50)
+  const px = useMotionValue(0)
+  const py = useMotionValue(0)
   const spotlightSpring = { stiffness: 72, damping: 20, mass: 1.15 }
-  const smx = useSpring(mx, spotlightSpring)
-  const smy = useSpring(my, spotlightSpring)
-  const spotlight = useMotionTemplate`radial-gradient(520px circle at ${smx}% ${smy}%, rgba(201, 169, 110, 0.16), transparent 62%)`
+  const spx = useSpring(px, spotlightSpring)
+  const spy = useSpring(py, spotlightSpring)
+  const rectRef = useRef<DOMRect | null>(null)
+  const rafRef = useRef<number | null>(null)
+  const pendingRef = useRef<{ x: number; y: number } | null>(null)
+  const pointerClientRef = useRef<{ x: number; y: number } | null>(null)
+  const [pointerCapable, setPointerCapable] = useState(false)
 
   const roleStrings = useMemo(
     () => hero.roles.map((r) => pick(r, locale)),
@@ -32,29 +36,105 @@ export function Hero() {
 
   const displayName = pick(hero.displayName, locale)
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const media = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const update = () => setPointerCapable(media.matches)
+    update()
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [])
+
+  useEffect(() => {
+    const node = sectionRef.current
+    if (!node) return
+
+    const syncToLatestPointer = () => {
+      if (!rectRef.current || !pointerClientRef.current) return
+      const x = pointerClientRef.current.x - rectRef.current.left
+      const y = pointerClientRef.current.y - rectRef.current.top
+      px.set(Math.max(0, Math.min(rectRef.current.width, x)))
+      py.set(Math.max(0, Math.min(rectRef.current.height, y)))
+    }
+
+    const updateRect = () => {
+      rectRef.current = node.getBoundingClientRect()
+      if (!rectRef.current) return
+      if (pointerClientRef.current) {
+        syncToLatestPointer()
+      } else {
+        // Initial resting position when there's no pointer interaction yet.
+        px.set(rectRef.current.width * 0.5)
+        py.set(rectRef.current.height * 0.38)
+      }
+    }
+
+    updateRect()
+    window.addEventListener('resize', updateRect)
+    window.addEventListener('scroll', updateRect, { passive: true })
+    return () => {
+      window.removeEventListener('resize', updateRect)
+      window.removeEventListener('scroll', updateRect)
+    }
+  }, [px, py])
+
+  useEffect(() => {
+    return () => {
+      if (rafRef.current !== null) window.cancelAnimationFrame(rafRef.current)
+    }
+  }, [])
+
   const onPointerMove = useCallback(
     (e: React.PointerEvent<HTMLElement>) => {
-      if (reduced || !sectionRef.current) return
-      const r = sectionRef.current.getBoundingClientRect()
-      const x = ((e.clientX - r.left) / Math.max(r.width, 1)) * 100
-      const y = ((e.clientY - r.top) / Math.max(r.height, 1)) * 100
-      mx.set(x)
-      my.set(y)
+      if (reduced || !pointerCapable || !rectRef.current) return
+      pointerClientRef.current = { x: e.clientX, y: e.clientY }
+      pendingRef.current = {
+        x: e.clientX - rectRef.current.left,
+        y: e.clientY - rectRef.current.top,
+      }
+
+      if (rafRef.current !== null) return
+      rafRef.current = window.requestAnimationFrame(() => {
+        rafRef.current = null
+        if (!pendingRef.current || !rectRef.current) return
+        const x = Math.max(0, Math.min(rectRef.current.width, pendingRef.current.x))
+        const y = Math.max(0, Math.min(rectRef.current.height, pendingRef.current.y))
+        px.set(x)
+        py.set(y)
+      })
     },
-    [reduced, mx, my],
+    [reduced, pointerCapable, px, py],
   )
+
+  const onPointerEnter = useCallback(() => {
+    if (!sectionRef.current) return
+    rectRef.current = sectionRef.current.getBoundingClientRect()
+  }, [])
 
   return (
     <section
       id="hero"
       ref={sectionRef}
+      onPointerEnter={onPointerEnter}
       onPointerMove={onPointerMove}
       className="relative flex min-h-[100dvh] scroll-mt-24 flex-col justify-center overflow-hidden px-4 pb-16 pt-28 sm:px-6 lg:px-8"
     >
       <motion.div style={{ y: parallaxY }} className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-canvas" />
-        {!reduced ? (
-          <motion.div className="absolute inset-0" style={{ backgroundImage: spotlight }} />
+        {!reduced && pointerCapable ? (
+          <motion.div
+            aria-hidden
+            className="absolute left-0 top-0 h-[750px] w-[750px] rounded-full"
+            style={{
+              x: spx,
+              y: spy,
+              translateX: '-50%',
+              translateY: '-50%',
+              background:
+                'radial-gradient(circle, rgba(201, 169, 110, 0.16) 0%, rgba(201, 169, 110, 0.08) 34%, transparent 62%)',
+              willChange: 'transform',
+            }}
+          />
         ) : (
           <div
             className="absolute inset-0 opacity-40"

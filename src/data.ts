@@ -1,17 +1,12 @@
-/**
- * Localized copy: edit `tl` for Tagalog. UI strings also live in `src/locale/messages.ts`.
- */
+
 export type L = { en: string; tl: string }
 
 export type Project = {
   title: L
   blurb: L
-  /** Longer line shown on card hover */
   blurbHover: L
   tags: string[]
-  /** Card uses images[0]; gallery modal lists all */
   images: string[]
-  /** Public URL; omit or leave empty to hide the Live action on the card */
   live?: string
 }
 
@@ -31,16 +26,16 @@ export type TechLogoId =
   | 'linux'
   | 'vercel'
   | 'laravel'
+  | 'php'
   | 'mysql'
   | 'inertia'
   | 'hostinger'
   | 'cursor'
   | 'claude'
 
-/** Stack card in Skills: logo + years revealed on hover */
 export type TechStackItem = {
   id: TechLogoId
-  /** Whole years shown as “n+” on the card */
+
   years: number
 }
 
@@ -54,7 +49,7 @@ export const site = {
 export const hero = {
   displayName: { en: 'Mark Benson Bellen', tl: 'Mark Benson Bellen' },
   roles: [
-    { en: 'Full Stack Developer', tl: 'Full Stack Developer' },
+    { en: 'Full Stack/Web Developer', tl: 'Full Stack/Web Developer' },
     { en: 'Problem Solver', tl: 'Tagapaglutas ng problema' },
     { en: 'AI enthusiast', tl: 'Mahilig sa AI' },
   ] as const satisfies ReadonlyArray<L>,
@@ -65,32 +60,31 @@ export const about = {
   portrait: '/images/portrait.jpg',
   bio: [
     {
-      en: "I'm a Full Stack Developer who's spent the last 2+ years building web applications with React and Laravel. For frontend projects I work with Vite and React, and when a backend is involved I reach for Laravel and Inertia.js, keeping the stack tight and the workflow smooth. I'm a problem-solver first, but I care deeply about how the end result looks and feels. AI tools are part of how I work daily, not as a shortcut, but to free up space for the work that actually requires care.",
-      tl: "Isa akong Full Stack Developer na gumugol ng huling 2+ taon sa pagbuo ng mga web application gamit ang React at Laravel. Para sa mga proyekto sa frontend, nakikipagtulungan ako sa Vite at React, at kapag may kasamang backend, inaabot ko ang Laravel at Inertia.js, na pinananatiling mahigpit ang stack at maayos ang daloy ng trabaho. Ako muna ang tagalutas ng problema, ngunit lubos akong nagmamalasakit sa hitsura at pakiramdam ng resulta. Ang mga tool ng AI ay bahagi ng kung paano ako nagtatrabaho araw-araw, hindi bilang isang shortcut, ngunit upang magbakante ng espasyo para sa trabaho na talagang nangangailangan ng pangangalaga.",
+      en: "I'm a Full Stack/Web Developer who's spent the last 2+ years building web applications with React and Laravel. For frontend projects I work with Vite and React, and when a backend is involved I reach for Laravel and Inertia.js, keeping the stack tight and the workflow smooth. I'm a problem-solver first, but I care deeply about how the end result looks and feels.",
+      tl: "Isa akong Full Stack/Web Developer na gumugol ng huling 2+ taon sa pagbuo ng mga web application gamit ang React at Laravel. Para sa mga proyekto sa frontend, nakikipagtulungan ako sa Vite at React, at kapag may kasamang backend, inaabot ko ang Laravel at Inertia.js, na pinananatiling mahigpit ang stack at maayos ang daloy ng trabaho. Ako muna ang tagalutas ng problema, ngunit lubos akong nagmamalasakit sa hitsura at pakiramdam ng resulta.",
     },
     {
-      en: "I build late, think in components, and care about the details most people scroll past. If something looks off by two pixels, I'll notice, and I probably won't leave it alone until it's fixed.",
-      tl: "Gumagawa ako ng huli, nag-iisip sa mga komponente, at nagmamalasakit sa mga detalye na mas madalas na binabago ng mga tao. Kung ang isang bagay ay mabaway sa dalawa na pixel, mag-iingatan ako, at marahil ay hindi ako magtatagpo hanggang hindi na ito nangyayare.",
+      en: "AI tools are part of how I work daily, not as a shortcut, but to free up space for the work that actually requires care.",
+      tl: "Ang mga tool ng AI ay bahagi ng kung paano ako nagtatrabaho araw-araw, hindi bilang isang shortcut, ngunit upang magbakante ng espasyo para sa trabaho na kailangan ng pag-aalaga.",
     },
   ] satisfies L[],
   chips: [
-    { en: '2+ years experience', tl: '5+ taon na karanasan' },
-    { en: 'Late night coder', tl: 'Open source contributor' },
+    { en: '2+ years experience', tl: '2+ taon na karanasan' },
+    { en: 'Web Developer', tl: 'Web Developer' },
     { en: 'Problem solver', tl: 'Tagalutas ng problema' },
     { en: 'AI enthusiast', tl: 'Mahilig sa AI' },
     { en: 'Open to opportunities', tl: 'Bukas sa mga pagkakataon' },
   ] satisfies L[],
 }
 
-/** Shown in the Projects section (responsive grid); add or remove entries as needed. */
 export const projects: Project[] = [
   {
     title: { en: 'TutoyHub — Capstone Project', tl: 'TutoyHub — Capstone Project' },
     blurb: { en: 'A platform for toy collectors to browse a curated showroom, bid on rare finds, and upload 3D models for an immersive viewing experience.', tl: 'Isang platform para sa kolektor ng laruan na mag-browse sa isang na-curate na showroom, mag-bid sa mga bihirang mahanap, at mag-upload ng mga 3D na modelo para sa nakaka-engganyong karanasan sa panonood.' },
     blurbHover: {
-      en: 'A platform where toy collectors can browse a curated showroom, bid on rare finds, and upload 3D models for an immersive viewing experience. One platform, two experiences, zero compromise.', tl: 'Isang platform kung saan maaaring mag-browse ang mga kolektor ng laruan sa isang na-curate na showroom, mag-bid sa mga bihirang mahanap, at mag-upload ng mga 3D na modelo para sa nakaka-engganyong karanasan sa panonood. Isang platform, dalawang karanasan, walang kompromiso.'
+      en: 'A platform where toy collectors can browse a curated showroom, bid on rare finds, and upload 3D models for an immersive viewing experience. That has DRBAC for users, Real-time auctions, and a community page for users to interact with each other.', tl: 'Isang platform kung saan maaaring mag-browse ang mga kolektor ng laruan sa isang na-curate na showroom, mag-bid sa mga bihirang mahanap, at mag-upload ng mga 3D na modelo para sa nakaka-engganyong karanasan sa panonood. May DRBAC para sa mga user, Real-time auctions, at isang community page para sa mga user na mag-interact sa bawat isa.'
     },
-    tags: ['REACT', 'TAILWIND', 'LARAVEL', 'INERTIA.JS', 'HOSTINGER', 'MYSQL'],
+    tags: ['REACT', 'TAILWIND', 'LARAVEL', 'INERTIA.JS', 'MYSQL'],
     images: ['/images/projects/tutoyhub/landing.png','/images/projects/tutoyhub/auction.png','/images/projects/tutoyhub/storeview.png','/images/projects/tutoyhub/auctionproduct.png','/images/projects/tutoyhub/showroom.png', '/images/projects/tutoyhub/communitypage.png','/images/projects/tutoyhub/sellerapplication.png' ,'/images/projects/tutoyhub/admindashboard.png','/images/projects/tutoyhub/sellerdashboard.png','/images/projects/tutoyhub/RBAC.png','/images/projects/tutoyhub/buyerview.png'],
   },
   {
@@ -119,8 +113,8 @@ export const projects: Project[] = [
     title: { en: 'Client Project — Cleaning Service', tl: 'Client Project — Cleaning Service' },
     blurb: { en: 'A company profile site delivered for a real cleaning services client.', tl: 'Isang site ng profile ng kumpanya na inihatid para sa isang tunay na kliyente ng mga serbisyo sa paglilinis.' },
     blurbHover: {
-      en: 'The goal was simple — give their business a professional online presence that builds trust and turns visitors into inquiries. Clean layout, clear messaging, and everything a potential customer needs without the noise.',
-      tl: 'Simple lang ang layunin — bigyan ang kanilang negosyo ng propesyonal na presensya sa online na bumubuo ng tiwala at ginagawang mga katanungan ang mga bisita. Malinis na layout, malinaw na pagmemensahe, at lahat ng kailangan ng potensyal na customer nang walang ingay.',
+      en: 'Built to convert. Clean layout and focused messaging that gives potential customers everything they need to take the next step — no noise, no guesswork.',
+      tl: 'Binuo para mag-convert. Malinis na layout at malinaw na pagmemensahe na nagbibigay ng lahat ng kailangan ng potensyal na customer para mag-take ng susunod na hakbang — walang ingay, walang pag-asa.',
     },
     tags: ['REACT+VITE', 'TAILWIND'],
     images: ['/images/projects/tmscleaning/landing.png','/images/projects/tmscleaning/about.png','/images/projects/tmscleaning/services.png','/images/projects/tmscleaning/pricing.png','/images/projects/tmscleaning/process.png','/images/projects/tmscleaning/gallery.png','/images/projects/tmscleaning/contact.png'],
@@ -135,31 +129,31 @@ export const skills = {
   groups: [
     {
       category: { en: 'Frontend', tl: 'Frontend' },
-      line: { en: 'React, Vite, TypeScript, Tailwind CSS, shadcn/ui', tl: 'React, Vite, TypeScript, Tailwind CSS, shadcn/ui' },
+      line: { en: 'JavaScript, TypeScript, React+Vite, Tailwind, Shadcn/UI', tl: 'JavaScript, TypeScript, React+Vite, Tailwind, Shadcn/UI' },
     },
     {
       category: { en: 'Backend', tl: 'Backend' },
-      line: { en: 'Laravel, MySQL, Inertia.js', tl: 'Laravel, MySQL, Inertia.js' },
+      line: { en: 'PHP,LARAVEL, MYSQL', tl: 'LARAVEL, MYSQL' },
     },
     {
       category: { en: 'AI', tl: 'AI' },
       line: {
-        en: 'AI-assisted workflows, prompt engineering',
-        tl: 'AI-assisted na workflow, prompt engineering',
+        en: 'AI-assisted workflows, Prompt Engineering',
+        tl: 'AI-assisted na workflow, Prompt Engineering',
       },
     },
     {
       category: { en: 'AI stack', tl: 'AI stack' },
       line: {
-        en: 'Gemini, Claude, Cursor',
-        tl: 'Gemini, Claude, Cursor',
+        en: 'GEMINI, CLAUDE, CURSOR',
+        tl: 'GEMINI, CLAUDE, CURSOR',
       },
     },
     {
       category: { en: 'Text-editor', tl: 'Text-editor' },
       line: {
-        en: 'Cursor/VSCode',
-        tl: 'Cursor/VSCode',
+        en: 'CURSOR/VSCODE',
+        tl: 'CURSOR/VSCODE',
       },
     },
   ] satisfies SkillLine[],
@@ -167,8 +161,8 @@ export const skills = {
     { id: 'react', years: 2 },
     { id: 'typescript', years: 2 },
     { id: 'laravel', years: 1 },
+    { id: 'php', years: 1 },
     { id: 'mysql', years: 2 },
-    { id: 'inertia', years: 1 },
     { id: 'tailwindcss', years: 2 },
     { id: 'vercel', years: 2 },
     { id: 'cursor', years: 1 },
@@ -181,9 +175,7 @@ export type Award = {
   issuer: L
   period: L
   detail?: L
-  /** Credential image under `public/` (e.g. `/images/awards/aws.png`). Used as card background; “View credential” opens this in a new tab when set. */
   image?: string
-  /** External verification page when no `image`, or in addition to it */
   url?: string
 }
 
@@ -220,7 +212,6 @@ export const contact = {
     tl: 'Bukas ako sa freelance, kolaborasyon, at usapin tungkol sa maingat na software.',
   },
   email: 'markbensonbellen0@gmail.com',
-  /** Spacing ok; used for display and `tel:` (spaces stripped). Set your real number. */
   phone: '+63 943 5666 686',
   social: {
     facebook: 'https://www.facebook.com/mariooo.23',
@@ -240,19 +231,15 @@ export type SimpleResumeExperience = {
   bullets: L[]
 }
 
-/** Résumé education band — drives the localized section label in the simple résumé. */
 export type SimpleResumeEducationLevel = 'tertiary' | 'secondary' | 'primary'
 
 export type SimpleResumeEducation = {
   level: SimpleResumeEducationLevel
   school: L
-  /** Year or range shown on the résumé (mock until you replace). */
   period: L
-  /** City / region only (no coursework copy). */
   location: L
 }
 
-/** Plain one-column résumé content (simple layout view). */
 export const simpleResume = {
   headline: { en: 'Mark Benson Bellen', tl: 'Mark Benson Bellen' },
   tagline: { en: 'Full Stack Developer', tl: 'Full Stack Developer' },
@@ -282,7 +269,6 @@ export const simpleResume = {
       ],
     },
   ] satisfies SimpleResumeExperience[],
-  /** Mock rows for layout; replace with real programs and years when ready. */
   education: [
     {
       level: 'tertiary',
