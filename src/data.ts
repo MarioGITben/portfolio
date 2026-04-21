@@ -310,10 +310,10 @@ export const simpleResume = {
     {
       level: 'primary',
       school: {
-        en: 'Elementary — God The Almighty Academy INC.',
-        tl: 'Elementarya — God The Almighty Academy INC.',
+        en: 'Elementary & High School — God The Almighty Academy INC.',
+        tl: 'Elementary & High School — God The Almighty Academy INC.',
       },
-      period: { en: '2015 — 2021', tl: '2015 — 2021' },
+      period: { en: '2011 — 2021', tl: '2011 — 2021' },
       location: { en: 'Dasmariñas, Cavite, Philippines', tl: 'Dasmariñas, Cavite, Pilipinas' },
     },
   ] satisfies SimpleResumeEducation[],
