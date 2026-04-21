@@ -60,8 +60,8 @@ export const about = {
   portrait: '/images/portrait.jpg',
   bio: [
     {
-      en: "I'm a Full Stack/Web Developer who's spent the last 2+ years building web applications with React and Laravel. For frontend projects I work with Vite and React, and when a backend is involved I reach for Laravel and Inertia.js, keeping the stack tight and the workflow smooth. I'm a problem-solver first, but I care deeply about how the end result looks and feels.",
-      tl: "Isa akong Full Stack/Web Developer na gumugol ng huling 2+ taon sa pagbuo ng mga web application gamit ang React at Laravel. Para sa mga proyekto sa frontend, nakikipagtulungan ako sa Vite at React, at kapag may kasamang backend, inaabot ko ang Laravel at Inertia.js, na pinananatiling mahigpit ang stack at maayos ang daloy ng trabaho. Ako muna ang tagalutas ng problema, ngunit lubos akong nagmamalasakit sa hitsura at pakiramdam ng resulta.",
+      en: "I'm a Full Stack/Web Developer who's spent the last 2+ years building web applications with React and Laravel and MySQL. For frontend projects I work with Vite and React, and when a backend is involved I reach for Laravel and Inertia.js, keeping the stack tight and the workflow smooth. I'm a problem-solver first, but I care deeply about how the end result looks and feels.",
+      tl: "Isa akong Full Stack/Web Developer na gumugol ng huling 2+ taon sa pagbuo ng mga web application gamit ang React at Laravel at MySQL. Para sa mga proyekto sa frontend, nakikipagtulungan ako sa Vite at React, at kapag may kasamang backend, inaabot ko ang Laravel at Inertia.js, na pinananatiling mahigpit ang stack at maayos ang daloy ng trabaho. Ako muna ang tagalutas ng problema, ngunit lubos akong nagmamalasakit sa hitsura at pakiramdam ng resulta.",
     },
     {
       en: "AI tools are part of how I work daily, not as a shortcut, but to free up space for the work that actually requires care.",
@@ -245,8 +245,8 @@ export const simpleResume = {
   tagline: { en: 'Full Stack/Web Developer', tl: 'Full Stack/Web Developer' },
   location: { en: 'Philippines · Remote-friendly', tl: 'Pilipinas · Bukas sa remote' },
   summary: {
-    en: "Full Stack/Web Developer with 2+ years of hands-on experience building and delivering modern web applications using React, Laravel, Vite, and Inertia.js. Passionate about creating intuitive user experiences and implementing strong security measures. I actively use AI tools (Cursor, Claude, Gemini) across the full development process including system design, coding, and optimization to build better systems faster without compromising quality.",
-    tl: 'Full Stack/Web Developer na may 2+ taon sa pagbuo ng web application gamit ang React at Laravel. Sanay sa Vite at React sa frontend at Laravel kasama ang Inertia.js kapag may backend. Nagustuhan ko ang pagbuo ng intuitive user experiences at pag-implement ng mabilis na security measures. Ginagamit ko ang mga AI tools (Cursor, Claude, Gemini) sa buong proseso ng pagbuo kasama ang system design, coding, at optimization para magbuo ng mas mabilis na sistema nang hindi kami nag-aabante sa kalidad.',
+    en: "Full Stack/Web Developer with 2+ years of hands-on experience building and delivering modern web applications using React, Laravel and MySQL. Passionate about creating intuitive user experiences and implementing strong security measures. I actively use AI tools (Cursor, Claude, Gemini) across the full development process including system design, coding, and optimization to build better systems faster without compromising quality.",
+    tl: 'Full Stack/Web Developer na may 2+ taon sa pagbuo ng web application gamit ang React at Laravel at MySQL. Nagustuhan ko ang pagbuo ng intuitive user experiences at pag-implement ng mabilis na security measures. Ginagamit ko ang mga AI tools (Cursor, Claude, Gemini) sa buong proseso ng pagbuo kasama ang system design, coding, at optimization para magbuo ng mas mabilis na sistema nang hindi kami nag-aabante sa kalidad.',
   },
   experiences: [
     {
