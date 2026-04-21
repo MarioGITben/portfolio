@@ -340,15 +340,15 @@ export const simpleResume = {
   techSkills: {
     en: [
       'Frontend: React, Vite, TypeScript, Tailwind CSS, shadcn/ui.',
-      'Backend: Laravel, PHP, MySQL, Inertia.js.',
+      'Backend: Laravel, PHP, MySQL.',
       'Version control: Github, Git.',
-      'AI development: Cursor, Claude, Gemini (used for architecture, coding, and optimization)',
+      'AI Tools: Cursor, Claude, Gemini (used for architecture, coding, and optimization)',
     ],
     tl: [
       'Frontend: React, Vite, TypeScript, Tailwind CSS, shadcn/ui.',
-      'Backend: Laravel, PHP, MySQL, Inertia.js.',
+      'Backend: Laravel, PHP, MySQL.',
       'Version control: Github, Git.',
-      'AI development: Cursor, Claude, Gemini (used for architecture, coding, and optimization)',
+      'AI Tools: Cursor, Claude, Gemini (used for architecture, coding, and optimization)',
     ],
   },
 }
