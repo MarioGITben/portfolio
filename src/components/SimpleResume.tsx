@@ -42,6 +42,8 @@ function ResumeArticle({
   setDownloadOpen,
 }: ResumeArticleProps) {
   const isPdf = mode === 'pdf'
+  const softSkills = simpleResume.softSkills[contentLocale]
+  const useSoftSkillsTwoColumns = softSkills.length >= 4
   const articleClass = isPdf
     ? 'resume-print-article resume-print-pdf-clone mx-auto w-full max-w-7xl hidden print:block'
     : 'resume-print-article resume-print-screen mx-auto w-full max-w-7xl print:hidden'
@@ -200,13 +202,29 @@ function ResumeArticle({
       </section>
 
       <section className="py-5 sm:py-6">
-        <h2 className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-900">
-          {labels.sectionSkills}
-        </h2>
-        <div className="mt-3 flex flex-col gap-2 font-sans text-sm leading-relaxed text-zinc-700">
-          {simpleResume.skills[contentLocale].map((line, i) => (
-            <p key={i}>{line}</p>
-          ))}
+        <div className="flex flex-col gap-6 md:flex-row md:gap-8">
+          <div className="min-w-0 flex-1">
+            <h2 className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-900">
+              {labels.sectionSoftSkills}
+            </h2>
+            <ul
+              className={`mt-3 list-disc pl-5 font-sans text-sm leading-relaxed text-zinc-700 ${useSoftSkillsTwoColumns ? 'grid grid-cols-2 gap-x-6 gap-y-1.5' : 'space-y-1.5'}`}
+            >
+              {softSkills.map((line, i) => (
+                <li key={i}>{line}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="min-w-0 flex-1">
+            <h2 className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-900">
+              {labels.sectionTechSkills}
+            </h2>
+            <div className="mt-3 flex flex-col gap-2 font-sans text-sm leading-relaxed text-zinc-700">
+              {simpleResume.techSkills[contentLocale].map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </motion.article>

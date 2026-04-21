@@ -259,12 +259,12 @@ export const simpleResume = {
           tl: 'Binuo ang TutoyHub — isang Laravel, Inertia.js, at MySQL na web application na may showroom, auction, seller/admin dashboard, at role-based access.',
         },
         {
-          en: 'Deployed Pandapp (React, Vite, Tailwind) as a school schedule, routine, and quiz library with offline-friendly browser caching.',
-          tl: 'Inilabas ang Pandapp (React, Vite, Tailwind) para sa school schedule, routine, at quiz library gamit ang offline-friendly browser caching.',
+          en: 'Built PandaApp — a full-featured school productivity app with offline support, schedule management, and quiz library, deployed for real users',
+          tl: 'Binuo ang PandaApp — isang full-featured na school productivity app na may offline support, schedule management, at quiz library, nilabas para sa mga tunay na user.',
         },
         {
-          en: 'Deployed Dolusapp for multi-file keyword search with offline-friendly browser caching.',
-          tl: 'Inilabas ang Dolusapp para sa multi-file keyword search gamit ang offline-friendly browser caching.',
+          en: 'Built Dolusapp — a multi-file keyword search tool with offline support, deployed for real users',
+          tl: 'Binuo ang Dolusapp — isang multi-file keyword search tool na may offline support, nilabas para sa mga tunay na user.',
         },
         {
           en: 'Designed and delivered a responsive website for a cleaning services company using React, Vite, and Tailwind CSS, emphasizing clear service displays, pricing transparency, and optimized customer inquiry processes.',
@@ -302,16 +302,36 @@ export const simpleResume = {
       location: { en: 'Dasmariñas, Cavite, Philippines', tl: 'Dasmariñas, Cavite, Pilipinas' },
     },
   ] satisfies SimpleResumeEducation[],
-  skills: {
+  softSkills: {
+    en: [
+      'Team-oriented',
+      'Communication',
+      'Independent problem solver',
+      'Fast learner',
+      'Adaptable',
+      'Detail-oriented',
+      'Time-management',
+    ],
+    tl: [
+      'Team-oriented',
+      'Mabilis na komunikasyon',
+      'Tagalutas ng problema independiyenteng',
+      'Mabilis na tagapakinig',
+      'Mag-adapt sa bagay',
+      'Detail-oriented',
+      'Mag-manage ng oras',
+    ],
+  },
+  techSkills: {
     en: [
       'Frontend: React, Vite, TypeScript, Tailwind CSS, shadcn/ui.',
-      'Backend: Laravel, MySQL, Inertia.js.',
+      'Backend: Laravel, PHP, MySQL, Inertia.js.',
       'Version control: Github, Git.',
       'AI development: Cursor, Claude, Gemini (used for architecture, coding, and optimization)',
     ],
     tl: [
       'Frontend: React, Vite, TypeScript, Tailwind CSS, shadcn/ui.',
-      'Backend: Laravel, MySQL, Inertia.js.',
+      'Backend: Laravel, PHP, MySQL, Inertia.js.',
       'Version control: Github, Git.',
       'AI development: Cursor, Claude, Gemini (used for architecture, coding, and optimization)',
     ],

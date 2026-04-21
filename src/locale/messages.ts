@@ -32,7 +32,8 @@ export const messages: Record<
       eduLevelSecondary: string
       eduLevelPrimary: string
       sectionAwardsCertificates: string
-      sectionSkills: string
+      sectionSoftSkills: string
+      sectionTechSkills: string
     }
     hero: { cta: string }
     about: { eyebrow: string; title: string }
@@ -44,7 +45,12 @@ export const messages: Record<
       /** Use `{n}` and `{total}` placeholders */
       galleryPick: string
     }
-    skills: { eyebrow: string; title: string; stackLabel: string; experienceUnit: string }
+    skills: {
+      eyebrow: string
+      title: string
+      stackLabel: string
+      experienceUnit: string
+    }
     awards: { eyebrow: string; title: string; credentialLink: string; closeModal: string }
     contact: {
       eyebrow: string
@@ -94,7 +100,8 @@ export const messages: Record<
       eduLevelSecondary: 'Secondary education',
       eduLevelPrimary: 'Primary education',
       sectionAwardsCertificates: 'Awards & certificates',
-      sectionSkills: 'Skills',
+      sectionSoftSkills: 'Soft skills',
+      sectionTechSkills: 'Tech skills',
     },
     hero: { cta: 'View My Work' },
     about: { eyebrow: 'ABOUT', title: 'Craft, clarity, calm systems.' },
@@ -164,7 +171,8 @@ export const messages: Record<
       eduLevelSecondary: 'Edukasyong sekondarya',
       eduLevelPrimary: 'Edukasyong primarya',
       sectionAwardsCertificates: 'Mga parangal at sertipiko',
-      sectionSkills: 'Mga kasanayan',
+      sectionSoftSkills: 'Soft skills',
+      sectionTechSkills: 'Tech skills',
     },
     hero: { cta: 'Tingnan ang mga proyekto' },
     about: {
