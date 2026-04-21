@@ -133,22 +133,37 @@ function ResumeArticle({
           {labels.sectionExperience}
         </h2>
         <ul className="mt-4 space-y-6 sm:space-y-7">
-          {simpleResume.experiences.map((exp) => (
-            <li key={pick(exp.company, contentLocale)}>
-              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                <div>
-                  <p className="font-display text-xl text-zinc-950">{pick(exp.role, contentLocale)}</p>
-                  <p className="font-sans text-sm text-zinc-600">{pick(exp.company, contentLocale)}</p>
+          {simpleResume.experiences.map((exp) => {
+            const company = pick(exp.company, contentLocale).trim()
+            const period = exp.period ? pick(exp.period, contentLocale).trim() : ''
+
+            return (
+              <li key={pick(exp.company, contentLocale)}>
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                  <div>
+                    <p className="font-display text-xl text-zinc-950">{pick(exp.role, contentLocale)}</p>
+                    {company ? <p className="font-sans text-sm text-zinc-600">{company}</p> : null}
+                  </div>
+                  {period ? <p className="shrink-0 font-mono text-xs text-zinc-500">{period}</p> : null}
                 </div>
-                <p className="shrink-0 font-mono text-xs text-zinc-500">{pick(exp.period, contentLocale)}</p>
-              </div>
-              <ul className="mt-3 list-disc space-y-1.5 pl-5 font-sans text-sm leading-relaxed text-zinc-700">
-                {exp.bullets.map((b, i) => (
-                  <li key={i}>{pick(b, contentLocale)}</li>
-                ))}
-              </ul>
-            </li>
-          ))}
+                <ul className="mt-3 space-y-1.5 font-sans text-sm leading-relaxed text-zinc-700">
+                  {exp.bullets.map((b, i) => (
+                    <li key={i} className="flex items-start justify-between gap-3">
+                      <span className="flex min-w-0 items-start gap-2">
+                        <span className="mt-[0.48rem] inline-block size-1.5 shrink-0 rounded-full bg-zinc-500" aria-hidden />
+                        <span>{pick(b.text, contentLocale)}</span>
+                      </span>
+                      {b.period ? (
+                        <span className="shrink-0 font-mono text-xs text-zinc-500">
+                          {pick(b.period, contentLocale)}
+                        </span>
+                      ) : null}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            )
+          })}
         </ul>
       </section>
 

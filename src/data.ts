@@ -227,8 +227,11 @@ export const footer = {
 export type SimpleResumeExperience = {
   company: L
   role: L
-  period: L
-  bullets: L[]
+  period?: L
+  bullets: {
+    text: L
+    period?: L
+  }[]
 }
 
 export type SimpleResumeEducationLevel = 'tertiary' | 'secondary' | 'primary'
@@ -252,23 +255,35 @@ export const simpleResume = {
     {
       company: { en: 'Freelance & independent projects', tl: 'Freelance at mga independent na proyekto' },
       role: { en: 'Full Stack/Web Developer', tl: 'Full Stack/Web Developer' },
-      period: { en: '2023 — Present', tl: '2023 — Kasalukuyan' },
+      period: { en: '2025 — Present', tl: '2023 — Kasalukuyan' },
       bullets: [
         {
-          en: 'Developed TutoyHub, a comprehensive Laravel + Inertia.js + MySQL web platform featuring live showroom, auction system, seller and admin dashboards, and secure role-based access control.',
-          tl: 'Binuo ang TutoyHub — isang Laravel, Inertia.js, at MySQL na web application na may showroom, auction, seller/admin dashboard, at role-based access.',
+          text: {
+            en: 'Developed TutoyHub, a comprehensive Laravel + Inertia.js + MySQL web platform featuring live showroom, auction system, seller and admin dashboards, and secure role-based access control.',
+            tl: 'Binuo ang TutoyHub — isang Laravel, Inertia.js, at MySQL na web application na may showroom, auction, seller/admin dashboard, at role-based access.',
+          },
+          period: { en: '2026', tl: '2026' },
         },
         {
-          en: 'Built PandaApp — a full-featured school productivity app with offline support, schedule management, and quiz library, deployed for real users',
-          tl: 'Binuo ang PandaApp — isang full-featured na school productivity app na may offline support, schedule management, at quiz library, nilabas para sa mga tunay na user.',
+          text: {
+            en: 'Built PandaApp — a full-featured school productivity app with offline support, schedule management, and quiz library, deployed for real users.',
+            tl: 'Binuo ang PandaApp — isang full-featured na school productivity app na may offline support, schedule management, at quiz library, nilabas para sa mga tunay na user.',
+          },
+          period: { en: '2026', tl: '2026' },
         },
         {
-          en: 'Built Dolusapp — a multi-file keyword search tool with offline support, deployed for real users',
-          tl: 'Binuo ang Dolusapp — isang multi-file keyword search tool na may offline support, nilabas para sa mga tunay na user.',
+          text: {
+            en: 'Built Dolusapp — a multi-file keyword search tool with offline support, deployed for real users.',
+            tl: 'Binuo ang Dolusapp — isang multi-file keyword search tool na may offline support, nilabas para sa mga tunay na user.',
+          },
+          period: { en: '2026', tl: '2026' },
         },
         {
-          en: 'Designed and delivered a responsive website for a cleaning services company using React, Vite, and Tailwind CSS, emphasizing clear service displays, pricing transparency, and optimized customer inquiry processes.',
-          tl: 'Binuo ang responsive website para sa kumpanya ng cleaning service gamit ang React, Vite, at Tailwind CSS — malinaw na pagpapakita ng serbisyo, transparent na presyo, at optimized na flow ng customer inquiry.',
+          text: {
+            en: 'Designed and delivered a responsive website for a cleaning services company using React, Vite, and Tailwind CSS, emphasizing clear service displays, pricing transparency, and optimized customer inquiry processes.',
+            tl: 'Binuo ang responsive website para sa kumpanya ng cleaning service gamit ang React, Vite, at Tailwind CSS — malinaw na pagpapakita ng serbisyo, transparent na presyo, at optimized na flow ng customer inquiry.',
+          },
+          period: { en: '2025', tl: '2025' },
         },
       ],
     },
