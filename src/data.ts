@@ -57,7 +57,7 @@ export const hero = {
 }
 
 export const about = {
-  portrait: '/images/portrait.jpg',
+  portrait: '/images/formalpicbellen2real.png',
   bio: [
     {
       en: "I'm a Full Stack/Web Developer who's spent the last 2+ years building web applications with React and Laravel and MySQL. For frontend projects I work with Vite and React, and when a backend is involved I reach for Laravel and Inertia.js, keeping the stack tight and the workflow smooth. I'm a problem-solver first, but I care deeply about how the end result looks and feels.",
