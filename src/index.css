@@ -171,7 +171,7 @@
   }
 
   html.resume-printing .resume-print-article header img {
-    max-height: 36pt !important;
+    max-height: 60pt !important;
     width: auto !important;
   }
 }
