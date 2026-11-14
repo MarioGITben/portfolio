@@ -9,7 +9,7 @@ This is my personal portfolio website, built with React and Vite. It highlights 
 - **Projects showcase** — Selected projects with descriptions and an image gallery modal.
 - **Skills and tools** — Core technologies and strengths presented in a visual grid.
 - **Awards and achievements** — Recognition and milestones.
-- **Contact section** — Built-in contact form with optional EmailJS support.
+- **Contact section** — Built-in contact form that posts to a Make.com webhook (`VITE_MAKE_WEBHOOK_URL`).
 - **Bilingual support** — English / Filipino language toggle for content and UI.
 - **Portfolio and resume views** — Switch between a full portfolio view and a focused resume-style presentation.
 

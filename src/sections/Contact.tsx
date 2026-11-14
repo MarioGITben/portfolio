@@ -8,7 +8,6 @@ import { SectionHeading } from '../components/SectionHeading'
 import { useLanguage } from '../hooks/useLanguage'
 import { useToast } from '../hooks/useToast'
 import { useReducedMotion } from '../hooks/useReducedMotion'
-import emailjs from '@emailjs/browser'
 
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())
@@ -43,10 +42,8 @@ export function Contact() {
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault()
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.trim()
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID?.trim()
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID?.trim()
-    if (!publicKey || !serviceId || !templateId) {
+    const webhookUrl = import.meta.env.VITE_MAKE_WEBHOOK_URL?.trim()
+    if (!webhookUrl) {
       showToast(m.contact.toastNotConfigured)
       return
     }
@@ -57,17 +54,16 @@ export function Contact() {
 
     setSending(true)
     try {
-      const result = await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: name.trim(),
-          from_email: email.trim(),
+      const result = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
           message: message.trim(),
-        },
-        { publicKey },
-      )
-      if (result.status === 200) {
+        }),
+      })
+      if (result.ok) {
         showToast(m.contact.toastSuccess)
         setName('')
         setEmail('')
