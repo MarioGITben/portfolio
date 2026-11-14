@@ -66,7 +66,7 @@ function ResumeArticle({
             aria-label={m.nav.darkMode}
             tabIndex={isPdf ? -1 : undefined}
           >
-            <BrandLogo variant="resume" />
+            <BrandLogo variant="resume" imgClassName="size-20 rounded-full object-cover sm:size-24" />
           </button>
           <div className="min-w-0 flex-1">
             <h1
