@@ -86,6 +86,7 @@ export const projects: Project[] = [
     },
     tags: ['REACT', 'TAILWIND', 'LARAVEL', 'INERTIA.JS', 'MYSQL'],
     images: ['/images/projects/tutoyhub/landing.png','/images/projects/tutoyhub/auction.png','/images/projects/tutoyhub/storeview.png','/images/projects/tutoyhub/auctionproduct.png','/images/projects/tutoyhub/auctionlive-1.png','/images/projects/tutoyhub/auctionlive-2.png','/images/projects/tutoyhub/showroom.png', '/images/projects/tutoyhub/communitypage.png','/images/projects/tutoyhub/sellerapplication.png' ,'/images/projects/tutoyhub/admindashboard.png','/images/projects/tutoyhub/sellerdashboard.png','/images/projects/tutoyhub/RBAC.png','/images/projects/tutoyhub/buyerview.png'],
+    live: 'https://tutoyhub.shop',
   },
   {
     title: { en: 'Pandapp', tl: 'Pandapp' },
