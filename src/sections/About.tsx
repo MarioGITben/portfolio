@@ -49,11 +49,28 @@ export function About() {
             className="space-y-6"
           >
             {about.bio.map((p, i) => (
-              <p key={i} className="font-sans text-base leading-relaxed text-dim md:text-lg">
+              <motion.p
+                key={i}
+                initial={reduced ? false : { opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-10%' }}
+                transition={{ duration: 0.45, delay: reduced ? 0 : 0.08 * i, ease: [0.22, 1, 0.36, 1] }}
+                className="font-sans text-base leading-relaxed text-dim md:text-lg"
+              >
                 {pick(p, locale)}
-              </p>
+              </motion.p>
             ))}
-            <ul className="flex flex-wrap gap-2 pt-2">
+            <motion.ul
+              initial={reduced ? false : { opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-10%' }}
+              transition={{
+                duration: 0.45,
+                delay: reduced ? 0 : 0.08 * about.bio.length,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="flex flex-wrap gap-2 pt-2"
+            >
               {about.chips.map((c, i) => (
                 <li
                   key={i}
@@ -62,7 +79,7 @@ export function About() {
                   {pick(c, locale)}
                 </li>
               ))}
-            </ul>
+            </motion.ul>
           </motion.div>
         </div>
       </div>

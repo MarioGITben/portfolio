@@ -60,12 +60,12 @@ export const about = {
   portrait: '/images/formalpicbellen2real.png',
   bio: [
     {
-      en: "I'm a Full Stack/Web Developer who's spent the last 2+ years building web applications with React and Laravel and MySQL. For frontend projects I work with Vite and React, and when a backend is involved I reach for Laravel and Inertia.js, keeping the stack tight and the workflow smooth. I'm a problem-solver first, but I care deeply about how the end result looks and feels.",
-      tl: "Isa akong Full Stack/Web Developer na gumugol ng huling 2+ taon sa pagbuo ng mga web application gamit ang React at Laravel at MySQL. Para sa mga proyekto sa frontend, nakikipagtulungan ako sa Vite at React, at kapag may kasamang backend, inaabot ko ang Laravel at Inertia.js, na pinananatiling mahigpit ang stack at maayos ang daloy ng trabaho. Ako muna ang tagalutas ng problema, ngunit lubos akong nagmamalasakit sa hitsura at pakiramdam ng resulta.",
+      en: "I'm a Full Stack / Web Developer with 2+ years building products end to end. On the frontend I lean on React and Vite; when a backend is needed I reach for Laravel, Inertia.js, and MySQL—keeping the stack focused so the work stays fast and clear.",
+      tl: "Isa akong Full Stack / Web Developer na may 2+ taong karanasan sa pagbuo ng produkto mula simula hanggang tapos. Sa frontend, React at Vite ang gamit ko; kapag kailangan ng backend, Laravel, Inertia.js, at MySQL—maikli ang stack para mabilis at malinaw ang daloy.",
     },
     {
-      en: "AI tools are part of how I work daily, not as a shortcut, but to free up space for the work that actually requires care.",
-      tl: "Ang mga tool ng AI ay bahagi ng kung paano ako nagtatrabaho araw-araw, hindi bilang isang shortcut, ngunit upang magbakante ng espasyo para sa trabaho na kailangan ng pag-aalaga.",
+      en: "I'm a problem-solver first, and I still care how the result looks and feels. AI is part of my daily workflow—not as a shortcut, but to clear space for the decisions that deserve attention. Open to opportunities where that mix of craft and curiosity matters.",
+      tl: "Problem-solver muna ako, pero importante pa rin sa akin ang hitsura at pakiramdam ng resulta. Bahagi ng araw-araw kong trabaho ang AI—hindi shortcut, kundi para magkaroon ng espasyo sa mga desisyong kailangan ng atensyon. Bukas ako sa mga pagkakataon kung saan may say ang craft at curiosity.",
     },
   ] satisfies L[],
   chips: [

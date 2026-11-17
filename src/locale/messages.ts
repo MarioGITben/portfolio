@@ -44,6 +44,8 @@ export const messages: Record<
       galleryGoNext: string
       /** Use `{n}` and `{total}` placeholders */
       galleryPick: string
+      /** Use `{n}` and `{total}` placeholders */
+      galleryCounter: string
     }
     skills: {
       eyebrow: string
@@ -66,7 +68,6 @@ export const messages: Record<
       toastSuccess: string
       toastError: string
       toastValidation: string
-      toastNotConfigured: string
       /** `tel:` link accessible name */
       phoneCall: string
       copyEmail: string
@@ -104,13 +105,14 @@ export const messages: Record<
       sectionTechSkills: 'Tech skills',
     },
     hero: { cta: 'View My Work' },
-    about: { eyebrow: 'ABOUT', title: 'Craft, clarity, calm systems.' },
+    about: { eyebrow: 'ABOUT', title: 'Builder first. Craft always.' },
     projects: {
       eyebrow: 'SELECTED WORK',
       title: 'Projects worth talking about.',
       galleryGoPrev: 'Previous screenshot',
       galleryGoNext: 'Next screenshot',
       galleryPick: 'Screenshot {n} of {total}',
+      galleryCounter: '{n} / {total}',
     },
     skills: {
       eyebrow: 'STACK',
@@ -138,8 +140,6 @@ export const messages: Record<
       toastSuccess: 'Thanks — your message was sent.',
       toastError: 'Something went wrong. Try again or email directly.',
       toastValidation: 'Please fill in all fields with a valid email.',
-      toastNotConfigured:
-        'Form is not configured. Set VITE_MAKE_WEBHOOK_URL, then rebuild.',
       phoneCall: 'Call phone number',
       copyEmail: 'Copy email address',
       copyPhone: 'Copy phone number',
@@ -177,7 +177,7 @@ export const messages: Record<
     hero: { cta: 'Tingnan ang mga proyekto' },
     about: {
       eyebrow: 'TUNGKOL',
-      title: 'Linaw, kaayusan, matatag na sistema.',
+      title: 'Builder muna. Craft palagi.',
     },
     projects: {
       eyebrow: 'PINILING GAWA',
@@ -185,6 +185,7 @@ export const messages: Record<
       galleryGoPrev: 'Nakaraang screenshot',
       galleryGoNext: 'Susunod na screenshot',
       galleryPick: 'Screenshot {n} ng {total}',
+      galleryCounter: '{n} / {total}',
     },
     skills: {
       eyebrow: 'STACK',
@@ -212,8 +213,6 @@ export const messages: Record<
       toastSuccess: 'Salamat — naipadala ang mensahe mo.',
       toastError: 'May problema. Subukan ulit o mag-email nang diretso.',
       toastValidation: 'Punan ang lahat ng field at gumamit ng wastong email.',
-      toastNotConfigured:
-        'Hindi pa naka-set ang form. Ilagay ang VITE_MAKE_WEBHOOK_URL, tapos i-rebuild.',
       phoneCall: 'Tumawag sa numero',
       copyEmail: 'Kopyahin ang email',
       copyPhone: 'Kopyahin ang numero ng telepono',

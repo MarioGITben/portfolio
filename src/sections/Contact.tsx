@@ -44,7 +44,7 @@ export function Contact() {
     e.preventDefault()
     const webhookUrl = import.meta.env.VITE_MAKE_WEBHOOK_URL?.trim()
     if (!webhookUrl) {
-      showToast(m.contact.toastNotConfigured)
+      showToast(m.contact.toastError)
       return
     }
     if (!name.trim() || !email.trim() || !message.trim() || !isValidEmail(email)) {
